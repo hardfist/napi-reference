@@ -8,3 +8,11 @@ export declare namespace external {
     constructor()
   }
 }
+export declare namespace reference {
+  export class Compiler {
+    constructor(compilation: Compilation)
+  }
+  export class Compilation {
+    constructor()
+  }
+}
