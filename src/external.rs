@@ -3,6 +3,7 @@ use napi_derive::napi;
 pub mod external {
   use napi::bindgen_prelude::*;
   use napi_derive::napi;
+
   #[napi]
   pub struct Compiler {
     compilation: External<Compilation>,
@@ -13,15 +14,17 @@ pub mod external {
     #[napi(constructor)]
     pub fn new() -> Self {
       Compiler {
-        compilation: External::new(Compilation {name: "owned by native".to_string()}),
+        compilation: External::new(Compilation {
+          name: "owned by native".to_string(),
+        }),
       }
     }
     #[napi]
     pub fn create_compilation(&self) -> External<Compilation> {
-      let external = External::new(Compilation{
-        name: "owned by js".to_string()
+      let external = External::new(Compilation {
+        name: "owned by js".to_string(),
       });
-      
+
       external
     }
   }
@@ -33,16 +36,16 @@ pub mod external {
   }
 
   struct Compilation {
-    name: String
+    name: String,
   }
   impl Compilation {
-    pub fn build(){
+    pub fn build() {
       println!("Building Compilation");
     }
   }
   impl Drop for Compilation {
     fn drop(&mut self) {
-      println!("Dropping Compilation: {:?}",self.name);
+      println!("Dropping Compilation: {:?}", self.name);
     }
   }
 }

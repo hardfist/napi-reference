@@ -9,11 +9,27 @@ export declare class ExternalObject<T> {
     [K: symbol]: T
   }
 }
+export declare namespace _class {
+  export class Counter {
+    cnt: number
+    constructor(init: number)
+    add(by: number): number
+    get(): number
+  }
+}
 export declare namespace external {
   export class Compiler {
     constructor()
     createCompilation(): ExternalObject<Compilation>
   }
+}
+export declare namespace external_value {
+  export interface Counter {
+    cnt: number
+  }
+  export function createCounter(init: number): ExternalObject<Counter>
+  export function addCounter(counter: ExternalObject<Counter>, by: number): number
+  export function printExternal(counter: ExternalObject<Counter>): void
 }
 export declare namespace reference {
   export class Compiler {
@@ -28,12 +44,4 @@ export declare namespace value {
     cnt: number
   }
   export function createCounter(init: number): Counter
-}
-export declare namespace _class {
-  export class Counter {
-    cnt: number
-    constructor(init: number)
-    add(by: number): number
-    get(): number
-  }
 }

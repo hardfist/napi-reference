@@ -3,6 +3,7 @@ use napi_derive::napi;
 pub mod reference {
   use napi::bindgen_prelude::*;
   use napi_derive::napi;
+
   #[napi]
   pub struct Compiler {
     compilation: Reference<Compilation>,
@@ -13,7 +14,7 @@ pub mod reference {
     #[napi(constructor)]
     pub fn new(compilation: Reference<Compilation>) -> Self {
       Compiler {
-        compilation: compilation
+        compilation: compilation,
       }
     }
   }
@@ -32,7 +33,6 @@ pub mod reference {
     pub fn new() -> Self {
       Compilation {}
     }
-
   }
 
   impl Drop for Compilation {
