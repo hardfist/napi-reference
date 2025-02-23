@@ -310,7 +310,9 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { external, reference } = nativeBinding
+const { external, reference, value, _class } = nativeBinding
 
 module.exports.external = external
 module.exports.reference = reference
+module.exports.value = value
+module.exports._class = _class

@@ -23,3 +23,17 @@ export declare namespace reference {
     constructor()
   }
 }
+export declare namespace value {
+  export interface Counter {
+    cnt: number
+  }
+  export function createCounter(init: number): Counter
+}
+export declare namespace _class {
+  export class Counter {
+    cnt: number
+    constructor(init: number)
+    add(by: number): number
+    get(): number
+  }
+}
