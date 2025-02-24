@@ -17,11 +17,11 @@ pub mod reference_callback {
     }
     #[napi]
     pub fn run(&self, env: Env) -> napi::Result<()>{
-       self.call_from_native(env);
+       self.call_from_native(env).unwrap();
        Ok(())
     }
     pub fn call_from_native(&self, env: napi::Env) -> Result<()>{
-        self.callback.borrow_back(&env).unwrap().call(());
+        self.callback.borrow_back(&env).unwrap().call(()).unwrap();
       
         Ok(())         
     }
