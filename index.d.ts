@@ -45,3 +45,9 @@ export declare namespace value {
   }
   export function createCounter(init: number): Counter
 }
+export declare namespace reference_callback {
+  export class Compiler {
+    constructor(callback: (...args: any[]) => any)
+    run(): void
+  }
+}

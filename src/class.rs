@@ -2,7 +2,6 @@ use napi_derive::napi;
 #[napi]
 pub mod _class {
   use napi::bindgen_prelude::*;
-  use napi_derive::napi;
   #[napi]
   struct Counter {
     pub cnt: i32,
