@@ -310,7 +310,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { _class, external, external_value, reference, value, reference_callback } = nativeBinding
+const { _class, external, external_value, reference, value, reference_callback, tsfn } = nativeBinding
 
 module.exports._class = _class
 module.exports.external = external
@@ -318,3 +318,4 @@ module.exports.external_value = external_value
 module.exports.reference = reference
 module.exports.value = value
 module.exports.reference_callback = reference_callback
+module.exports.tsfn = tsfn
