@@ -1063,6 +1063,7 @@ __metadata:
   dependencies:
     "@napi-rs/cli": "npm:^2.18.4"
     ava: "npm:^6.0.1"
+    why-is-node-running: "npm:3.2.2"
   languageName: unknown
   linkType: soft
 
@@ -1496,6 +1497,15 @@ __metadata:
   bin:
     node-which: ./bin/node-which
   checksum: 10c0/66522872a768b60c2a65a57e8ad184e5372f5b6a9ca6d5f033d4b0dc98aff63995655a7503b9c0a2598936f532120e81dd8cc155e2e92ed662a2b9377cc4374f
+  languageName: node
+  linkType: hard
+
+"why-is-node-running@npm:3.2.2":
+  version: 3.2.2
+  resolution: "why-is-node-running@npm:3.2.2"
+  bin:
+    why-is-node-running: cli.js
+  checksum: 10c0/47307bfc2f48dd5228a92103dc43a7cadafbc6b6791c114fd27e03ac271a5082849a54f7e5f5cb261ea68f0d4ad40d9cb503b55812a6b62e67de0c57039fb95b
   languageName: node
   linkType: hard
 

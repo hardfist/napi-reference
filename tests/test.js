@@ -32,9 +32,6 @@ it('reference callback', () => {
     compiler.run();
     callback();
     compiler.run();
-    setTimeout(() => {
-        callback();
-    },1000)
 })
 it('reference dropped', () => {
     const compilation = new reference.Compilation();
