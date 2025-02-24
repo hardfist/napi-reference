@@ -28,7 +28,7 @@ pub mod reference_callback {
   }
   impl ObjectFinalize for Compiler {
     fn finalize(mut self,env: Env)  -> napi::Result<()>{
-      println!("drop compiler with unref");
+      println!("drop compiler");
       Ok(())
     }
   }
