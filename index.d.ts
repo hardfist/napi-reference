@@ -27,9 +27,9 @@ export declare namespace external_value {
   export interface Counter {
     cnt: number
   }
-  export function createCounter(init: number): ExternalObject<Counter>
-  export function addCounter(counter: ExternalObject<Counter>, by: number): number
-  export function printExternal(counter: ExternalObject<Counter>): void
+  function createCounter(init: number): ExternalObject<Counter>
+  function addCounter(counter: ExternalObject<Counter>, by: number): number
+  function printExternal(counter: ExternalObject<Counter>): void
 }
 export declare namespace reference {
   export class Compiler {
@@ -43,11 +43,11 @@ export declare namespace value {
   export interface Counter {
     cnt: number
   }
-  export function createCounter(init: number): Counter
+  function createCounter(init: number): Counter
 }
 export declare namespace reference_callback {
   export class Compiler {
-    constructor(callback: (...args: any[]) => any)
+    constructor(callback: () => void)
     run(): void
   }
 }

@@ -7,13 +7,13 @@ pub mod reference_callback {
 
   #[napi(custom_finalize)]
   pub struct Compiler {
-    callback:Ref<()>
+    callback:FunctionRef<(),()>
   }
   #[napi]
   impl Compiler {
     #[napi(constructor)]
-    pub fn new(env: Env,callback: JsFunction) -> Self {
-      Compiler { callback: env.create_reference(callback).unwrap()}
+    pub fn new(env: Env,callback: Function<(),()>) -> Self {
+      Compiler { callback:callback.create_ref().unwrap()}
     }
     #[napi]
     pub fn run(&self, env: Env) -> napi::Result<()>{
@@ -21,15 +21,14 @@ pub mod reference_callback {
        Ok(())
     }
     pub fn call_from_native(&self, env: napi::Env) -> Result<()>{
-        let js_fn:JsFunction = env.get_reference_value(&self.callback)?;
-        js_fn.call_without_args(None)?;
+        self.callback.borrow_back(&env).unwrap().call(());
+      
         Ok(())         
     }
   }
   impl ObjectFinalize for Compiler {
     fn finalize(mut self,env: Env)  -> napi::Result<()>{
       println!("drop compiler with unref");
-      self.callback.unref(env).unwrap();
       Ok(())
     }
   }

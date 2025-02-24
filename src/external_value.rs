@@ -14,12 +14,12 @@ pub mod external_value {
     External::new(Counter { cnt: init })
   }
   #[napi]
-  pub fn add_counter(mut counter: External<Counter>, by: i32) -> i32 {
+  pub fn add_counter(mut counter: &mut External<Counter>, by: i32) -> i32 {
     counter.cnt += by;
     counter.cnt
   }
   #[napi]
-  pub fn print_external(counter: External<Counter>) {
+  pub fn print_external(counter: &External<Counter>) {
     println!("Counter: {}", counter.cnt);
   }
 }
