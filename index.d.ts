@@ -47,7 +47,7 @@ export declare namespace reference_callback {
 }
 export declare namespace tsfn {
   export class Counter {
-    constructor(callback: ((err: Error | null, arg: number) => void))
+    constructor(callback: ((arg: number) => void))
     add(val: number): void
   }
 }
