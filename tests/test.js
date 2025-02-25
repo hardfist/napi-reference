@@ -1,11 +1,21 @@
 import {it } from 'node:test'
 import { external, reference, value, _class,external_value, reference_callback,tsfn } from '../index.js';
-it('value', () => {
+it.only('value', () => {
     let counter = value.createCounter(100);
     console.log(counter.cnt);
     counter.cnt+=1;
     console.log(counter.cnt)
+    let new_counter = value.fromJsClone(counter)
+    new_counter.cnt+=1;
+    console.log('new counter:',new_counter);
+    console.log('old counter:',counter);
+
+    let new_counter2 = value.fromJsSerde(counter);
+    counter.cnt+=1;
+    console.log('old counter:', counter);
+    console.log('new counter:', new_counter2)
 })
+
 it('class', () => {
     let counter = new _class.Counter(100);
     console.log(counter.cnt);

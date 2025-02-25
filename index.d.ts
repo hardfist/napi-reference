@@ -39,12 +39,6 @@ export declare namespace reference {
     constructor()
   }
 }
-export declare namespace value {
-  export interface Counter {
-    cnt: number
-  }
-  function createCounter(init: number): Counter
-}
 export declare namespace reference_callback {
   export class Compiler {
     constructor(callback: () => void)
@@ -56,4 +50,12 @@ export declare namespace tsfn {
     constructor(callback: ((err: Error | null, arg: number) => void))
     add(val: number): void
   }
+}
+export declare namespace value {
+  export interface Counter {
+    cnt: number
+  }
+  function createCounter(init: number): Counter
+  function fromJsClone(counter: Counter): Counter
+  function fromJsSerde(counter: object): Counter
 }

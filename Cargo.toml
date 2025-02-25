@@ -7,8 +7,10 @@ version = "0.0.0"
 crate-type = ["cdylib"]
 
 [dependencies]
+serde = { version = "1.0.218"}
+serde_derive = { version = "1.0.218"}
 # Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
-napi = { version = "3.0.0-alpha.28", default-features = false, features = ["napi4"] }
+napi = { version = "3.0.0-alpha.28", default-features = false, features = ["napi4", "serde-json"] }
 napi-derive = "3.0.0-alpha.28"
 
 regex = { version = "*"}
