@@ -4,7 +4,7 @@ const registry = new FinalizationRegistry((val) => {
     console.log('finalize', val.target);
 })
 function main() {
-    function callback(err,num){
+    function callback(num){
         console.log('num:',num);
     }
     const counter = new tsfn.Counter(callback);
