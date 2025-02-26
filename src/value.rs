@@ -15,7 +15,7 @@ pub mod value {
     Counter { cnt: init }
   }
   #[napi]
-  pub fn from_js_clone(env: Env, counter: Counter) -> Counter {
+  pub fn from_js_clone(_env: Env, counter: Counter) -> Counter {
     counter
   }
   #[napi]

@@ -3,8 +3,7 @@ use napi_derive::napi;
 pub mod reference_callback {
 
   use napi::{
-    bindgen_prelude::{ObjectFinalize, *},
-    JsFunction, Ref,
+    bindgen_prelude::{ObjectFinalize, *}
   };
 
   #[napi(custom_finalize)]
@@ -14,7 +13,7 @@ pub mod reference_callback {
   #[napi]
   impl Compiler {
     #[napi(constructor)]
-    pub fn new(env: Env, callback: Function<(), ()>) -> Self {
+    pub fn new(_env: Env, callback: Function<(), ()>) -> Self {
       Compiler {
         callback: callback.create_ref().unwrap(),
       }
@@ -31,7 +30,7 @@ pub mod reference_callback {
     }
   }
   impl ObjectFinalize for Compiler {
-    fn finalize(mut self, env: Env) -> napi::Result<()> {
+    fn finalize(self, _env: Env) -> napi::Result<()> {
       println!("drop compiler");
       Ok(())
     }

@@ -1,5 +1,5 @@
 import {it } from 'node:test'
-import { external, reference, value, _class,external_value, reference_callback,tsfn, async_fn} from '../index.js';
+import { external, reference, value, _class,external_value, reference_callback,tsfn, async_fn, nested_call} from '../index.js';
 it.only('value', () => {
     let counter = value.createCounter(100);
     console.log(counter.cnt);
@@ -59,4 +59,8 @@ it.only('async fn', () => {
     async_fn.asyncFn2((res)=> {
         console.log('res:',res);
     })
+})
+
+it('nest call', () => {
+    const compiler =new nested_call.
 })

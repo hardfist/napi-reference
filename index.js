@@ -310,7 +310,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { async_fn, _class, external, external_value, reference, reference_callback, tsfn, value } = nativeBinding
+const { async_fn, _class, external, external_value, reference, reference_callback, tsfn, value, nested_call } = nativeBinding
 
 module.exports.async_fn = async_fn
 module.exports._class = _class
@@ -320,3 +320,4 @@ module.exports.reference = reference
 module.exports.reference_callback = reference_callback
 module.exports.tsfn = tsfn
 module.exports.value = value
+module.exports.nested_call = nested_call

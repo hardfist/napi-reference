@@ -20,7 +20,7 @@ pub mod tsfn {
       }
     }
     #[napi]
-    pub fn add(&mut self, env: Env, val: i32) -> napi::Result<()> {
+    pub fn add(&mut self, _env: Env, val: i32) -> napi::Result<()> {
       let tsfn = self.tsfn.clone();
       self.cnt += val;
       let cnt = self.cnt.clone();
@@ -39,7 +39,7 @@ pub mod tsfn {
     }
   }
   impl ObjectFinalize for Counter {
-    fn finalize(mut self, env: Env) -> Result<()> {
+    fn finalize(self, _env: Env) -> Result<()> {
       println!("finalization");
       // let tsfn = Arc::get_mut(&mut self.tsfn).unwrap();
       // tsfn.unref(&env).unwrap();

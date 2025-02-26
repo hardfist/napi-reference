@@ -2,7 +2,6 @@ use napi_derive::napi;
 #[napi]
 pub mod reference {
   use napi::bindgen_prelude::*;
-  use napi_derive::napi;
 
   #[napi]
   pub struct Compiler {

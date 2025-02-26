@@ -2,9 +2,7 @@ use napi_derive::napi;
 #[napi]
 pub mod async_fn {
   use napi::threadsafe_function::ThreadsafeFunction;
-  use napi_derive::napi;
-  use std::{cell::RefCell, rc::Rc, sync::Arc, thread, time::Duration};
-  use tokio::task;
+  use std::{rc::Rc, sync::Arc, thread, time::Duration};
   #[napi]
   async fn async_fn() -> napi::Result<()> {
     // let message = Rc::new("hello"); remove this will cause compile error
@@ -14,7 +12,7 @@ pub mod async_fn {
   }
   #[napi]
   async fn async_fn1() -> napi::Result<()> {
-    let future = async move {
+    let _future = async move {
       let message = Rc::new("hello");
       tokio::time::sleep(Duration::from_millis(100)).await;
       println!("message: {}", message);

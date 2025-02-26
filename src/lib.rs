@@ -6,3 +6,4 @@ pub mod reference;
 pub mod reference_callback;
 pub mod tsfn;
 pub mod value;
+pub mod nested_call;

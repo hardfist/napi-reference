@@ -64,3 +64,9 @@ export declare namespace value {
   function fromJsClone(counter: Counter): Counter
   function fromJsSerde(counter: object): Counter
 }
+export declare namespace nested_call {
+  export class Compiler {
+    getAssetPath(n: number): number
+    callAsssetPathHook(n: number): number
+  }
+}
