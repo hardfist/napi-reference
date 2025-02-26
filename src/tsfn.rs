@@ -7,7 +7,7 @@ pub mod tsfn {
   use std::{sync::Arc, thread};
   #[napi(custom_finalize)]
   pub struct Counter {
-    tsfn: Arc<ThreadsafeFunction<i32, (), i32, false, false , 0>>,
+    tsfn: Arc<ThreadsafeFunction<i32, (), i32, false, false, 0>>,
     cnt: i32,
   }
   #[napi]
@@ -29,7 +29,6 @@ pub mod tsfn {
           cnt,
           napi::threadsafe_function::ThreadsafeFunctionCallMode::NonBlocking,
         );
-        
       });
       Ok(())
     }

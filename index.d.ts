@@ -9,6 +9,11 @@ export declare class ExternalObject<T> {
     [K: symbol]: T
   }
 }
+export declare namespace async_fn {
+  function asyncFn(): Promise<void>
+  function asyncFn1(): Promise<void>
+  function asyncFn2(callback: ((arg: string) => void)): void
+}
 export declare namespace _class {
   export class Counter {
     cnt: number

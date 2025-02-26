@@ -1,3 +1,4 @@
+pub mod async_fn;
 pub mod class;
 pub mod external;
 pub mod external_value;

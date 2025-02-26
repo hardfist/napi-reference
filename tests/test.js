@@ -1,5 +1,5 @@
 import {it } from 'node:test'
-import { external, reference, value, _class,external_value, reference_callback,tsfn } from '../index.js';
+import { external, reference, value, _class,external_value, reference_callback,tsfn, async_fn} from '../index.js';
 it.only('value', () => {
     let counter = value.createCounter(100);
     console.log(counter.cnt);
@@ -48,10 +48,15 @@ it('reference dropped', () => {
     const compiler = new reference.Compiler(compilation);
     
 })
-it.only('tsfn', () => {
+it('tsfn', () => {
     const counter = new tsfn.Counter((err,num) => {
         console.log(err,num)
     });
     counter.add(10);
     counter.add(5);
+})
+it.only('async fn', () => {
+    async_fn.asyncFn2((res)=> {
+        console.log('res:',res);
+    })
 })
