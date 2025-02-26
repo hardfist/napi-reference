@@ -1,5 +1,4 @@
 import { tsfn } from '../index.js';
-import whyIsNodeRunning from 'why-is-node-running';
 const registry = new FinalizationRegistry((val) => {
     console.log('finalize', val.target);
 })
