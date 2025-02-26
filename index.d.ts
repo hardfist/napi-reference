@@ -55,6 +55,10 @@ export declare namespace tsfn {
     constructor(callback: ((arg: number) => void))
     add(val: number): void
   }
+  export class Container {
+    constructor(callback: ((arg: number) => void))
+    runInBackground(val: number): void
+  }
 }
 export declare namespace value {
   export interface Counter {
