@@ -66,6 +66,7 @@ export declare namespace value {
 }
 export declare namespace nested_call {
   export class Compiler {
+    constructor(callback: (arg: number) => number)
     getAssetPath(n: number): number
     callAsssetPathHook(n: number): number
   }

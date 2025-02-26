@@ -2,9 +2,7 @@ use napi_derive::napi;
 #[napi]
 pub mod reference_callback {
 
-  use napi::{
-    bindgen_prelude::{ObjectFinalize, *}
-  };
+  use napi::bindgen_prelude::{ObjectFinalize, *};
 
   #[napi(custom_finalize)]
   pub struct Compiler {

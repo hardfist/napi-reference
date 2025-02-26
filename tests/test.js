@@ -61,6 +61,12 @@ it.only('async fn', () => {
     })
 })
 
-it('nest call', () => {
-    const compiler =new nested_call.
+it.only('nest call', () => {
+    function callback(n){
+        console.log('callback called with ',n);
+        return 2*n
+    }
+    const compiler =new nested_call.Compiler(callback);
+    const result = compiler.getAssetPath(100);
+    console.log(result);
 })

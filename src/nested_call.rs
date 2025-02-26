@@ -3,12 +3,12 @@ use napi_derive::napi;
 #[napi]
 pub mod nested_call {
 
-    use napi::bindgen_prelude::{Function, FunctionRef, Env};
+    use napi::bindgen_prelude::*;
 
 
-    #[napi]
+    #[napi(custom_finalize)]
     pub struct Compiler {
-        pub asset_path_callback: FunctionRef<i32,i32>
+        asset_path_callback: FunctionRef<i32,i32>
     }
     #[napi]
     impl Compiler {
@@ -29,4 +29,11 @@ pub mod nested_call {
         }
     }
     
+    impl ObjectFinalize for Compiler {
+        fn finalize(self, _env: Env) -> napi::Result<()> {
+            
+            println!("drop compiler");
+            Ok(())
+        }
+    }
 }
