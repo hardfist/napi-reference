@@ -22,6 +22,12 @@ export declare namespace _class {
     get(): number
   }
 }
+export declare namespace deadlock {
+  export class DeadLocker {
+    constructor()
+    bip(): Promise<void>
+  }
+}
 export declare namespace external {
   export class Compiler {
     constructor()
@@ -35,6 +41,13 @@ export declare namespace external_value {
   function createCounter(init: number): ExternalObject<Counter>
   function addCounter(counter: ExternalObject<Counter>, by: number): number
   function printExternal(counter: ExternalObject<Counter>): void
+}
+export declare namespace nested_call {
+  export class Compiler {
+    constructor(callback: (arg: number) => number)
+    getAssetPath(n: number): number
+    callAsssetPathHook(n: number): number
+  }
 }
 export declare namespace reference {
   export class Compiler {
@@ -56,7 +69,7 @@ export declare namespace tsfn {
     add(val: number): void
   }
   export class Container {
-    constructor(callback: ((arg: number) => void))
+    constructor(callback: ((err: Error | null, arg: number) => void))
     runInBackground(val: number): void
   }
 }
@@ -67,11 +80,4 @@ export declare namespace value {
   function createCounter(init: number): Counter
   function fromJsClone(counter: Counter): Counter
   function fromJsSerde(counter: object): Counter
-}
-export declare namespace nested_call {
-  export class Compiler {
-    constructor(callback: (arg: number) => number)
-    getAssetPath(n: number): number
-    callAsssetPathHook(n: number): number
-  }
 }

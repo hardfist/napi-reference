@@ -3,7 +3,7 @@ use napi_derive::napi;
 #[napi]
 pub mod external_value {
   use napi::bindgen_prelude::*;
-  
+
   #[napi(object)]
   struct Counter {
     pub cnt: i32,
@@ -14,7 +14,7 @@ pub mod external_value {
     External::new(Counter { cnt: init })
   }
   #[napi]
-  pub fn add_counter( counter: &mut External<Counter>, by: i32) -> i32 {
+  pub fn add_counter(counter: &mut External<Counter>, by: i32) -> i32 {
     counter.cnt += by;
     counter.cnt
   }

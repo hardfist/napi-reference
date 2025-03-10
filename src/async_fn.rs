@@ -33,11 +33,15 @@ pub mod async_fn {
         println!("message: {}", message);
         message.to_string()
       };
-      let rt = tokio::runtime::Builder::new_current_thread().enable_all()
+      let rt = tokio::runtime::Builder::new_current_thread()
+        .enable_all()
         .build()
         .unwrap();
       let result = rt.block_on(future);
-      callback.call(result, napi::threadsafe_function::ThreadsafeFunctionCallMode::NonBlocking);
+      callback.call(
+        result,
+        napi::threadsafe_function::ThreadsafeFunctionCallMode::NonBlocking,
+      );
     });
     Ok(())
   }

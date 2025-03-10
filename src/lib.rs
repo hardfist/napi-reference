@@ -1,9 +1,10 @@
 pub mod async_fn;
 pub mod class;
+pub mod deadlock;
 pub mod external;
 pub mod external_value;
+pub mod nested_call;
 pub mod reference;
 pub mod reference_callback;
 pub mod tsfn;
 pub mod value;
-pub mod nested_call;

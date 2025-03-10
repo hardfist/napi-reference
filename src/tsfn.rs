@@ -5,8 +5,8 @@ pub mod tsfn {
   use napi::bindgen_prelude::{ObjectFinalize, *};
   use napi::threadsafe_function::ThreadsafeFunction;
   use std::thread::sleep;
-use std::time::Duration;
-use std::{sync::Arc, thread};
+  use std::time::Duration;
+  use std::{sync::Arc, thread};
   #[napi(custom_finalize)]
   pub struct Counter {
     tsfn: Arc<ThreadsafeFunction<i32, (), i32, false, false, 0>>,
@@ -49,7 +49,7 @@ use std::{sync::Arc, thread};
     }
   }
 
-   #[napi]
+  #[napi]
   pub struct Container {
     tsfn: Arc<ThreadsafeFunction<i32, (), i32, false, true, 0>>,
   }
@@ -57,9 +57,7 @@ use std::{sync::Arc, thread};
   impl Container {
     #[napi(constructor)]
     pub fn new(callback: Arc<ThreadsafeFunction<i32, (), i32, false, true, 0>>) -> Self {
-      Self {
-        tsfn: callback,
-      }
+      Self { tsfn: callback }
     }
     #[napi]
     pub fn run_in_background(&mut self, _env: Env, val: i32) -> napi::Result<()> {
